@@ -37,6 +37,7 @@ export class GithubClient {
 
   /**
    * Get first commit date
+   * Dates are in ISO 8601 format
    * @param params
    */
   async getFirstCommitDate() {
@@ -47,6 +48,7 @@ export class GithubClient {
 
   /**
    * Get a commit date
+   * Dates are in ISO 8601 format
    */ 
   async getCommitDate(commit_sha:string) {
     const commit = await this.octokit.rest.git.getCommit({
@@ -59,8 +61,8 @@ export class GithubClient {
 
   /**
    * Get a particular day commits 
+   * Dates are in ISO 8601 format
    * @param params 
-   * @returns 
    */
    async getCommitsBetween(startDate:string,endDate:string){
     const res = await this.octokit.rest.repos.listCommits({
@@ -68,6 +70,19 @@ export class GithubClient {
       until:endDate,
       ...this.config
     }) 
+    return res;
+  }
+
+  /**
+   * Get commits list until date in ISO 8601 format
+   * @param date
+   */
+   
+  async getCommitsUntil(date:string){
+    const res = await this.octokit.rest.repos.listCommits({
+      until:date,
+      ...this.config
+    })
     return res;
   }
 

@@ -5,7 +5,15 @@ gitstory.init({ owner: "vercel", repo: "next.js", sha: "5.0" });
 
 const start = "2019-01-11T00:00:00.000Z";
 const end = "2019-01-13T00:00:00.000Z";
+const test3 = "2018-01-13T00:00:00.000Z";
 
+
+async function testCommitUntilDate(){
+  const test = await gitstory.getCommitsUntilDate(test3);
+  test.data.forEach((element) => {
+    console.log(element.commit.author.date);
+  });
+}
 
 async function testCommitBetween(){
   const test = await gitstory.getCommitsBetweenDates(start, end);
@@ -21,7 +29,8 @@ async function testGetCommitDate(){
 
 
 (async function () {
-  testGetCommitDate();
+  testCommitUntilDate();
+  //testGetCommitDate();
   //testCommitBetween();
   // → 🎉
 })();

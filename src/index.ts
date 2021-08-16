@@ -29,7 +29,7 @@ export default class GitStory {
 
   /** 
    * Git Functions 
-   * Available Featurees/endpoints
+   * Available Features/endpoints
    */
 
   async getFirstCommit() {
@@ -46,6 +46,10 @@ export default class GitStory {
 
   async getCommitsBetweenDates(startDate, endDate) {
     return this.client.getCommitsBetween(startDate, endDate);
+  }
+
+  async getCommitsUntilDate(date) {
+    return this.client.getCommitsUntil(date);
   }
 
 }
