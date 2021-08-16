@@ -128,3 +128,5 @@ ehthumbs.db
 .directory
 .Xauthority
 
+# VSCode 
+.vscode

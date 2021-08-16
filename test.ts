@@ -20,7 +20,6 @@ async function testGetCommitDate(){
 }
 
 
-
 (async function () {
   testGetCommitDate();
   //testCommitBetween();
