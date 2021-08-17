@@ -75,6 +75,7 @@ export class GithubClient {
 
   /**
    * Get commits list until date in ISO 8601 format
+   * Dates are in ISO 8601 format
    * @param date
    */
    
@@ -85,6 +86,5 @@ export class GithubClient {
     })
     return res;
   }
-
 
 }

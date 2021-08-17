@@ -16,13 +16,13 @@ export default class GitStory {
    */
   
   init(params: ParamsInterface) {
-    switch (this.clientName) {
-      case "Github":
+    switch (this.clientName.toLowerCase()) {
+      case "github":
         this.client = new GithubClient();
         this.client.init(params);
         break;
 
-      case "Gitlab":
+      case "gitlab":
         break;
     }
   }
