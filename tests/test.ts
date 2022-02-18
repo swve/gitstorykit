@@ -1,4 +1,4 @@
-import GitStory from "./src/index";
+import GitStory from "../index";
 
 const gitstory = new GitStory("Github");
 gitstory.init({ owner: "vercel", repo: "next.js", sha: "5.0" });
