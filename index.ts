@@ -6,20 +6,21 @@ export default class GitStory {
   private clientName: string;
   private client;
 
-  constructor(client) {
-    this.clientName = client;
+  constructor(clientName: string) {
+    this.clientName = clientName;
   }
 
-  /**   
-   * Git client init 
-   * @param params 
+  /**
+   * Git client init
+   * @param params
    */
-  
+
   init(params: ParamsInterface) {
     switch (this.clientName.toLowerCase()) {
       case "github":
         this.client = new GithubClient();
         this.client.init(params);
+
         break;
 
       case "gitlab":
@@ -27,8 +28,8 @@ export default class GitStory {
     }
   }
 
-  /** 
-   * Git Functions 
+  /**
+   * Git Functions
    * Available Features/endpoints
    */
 
@@ -40,18 +41,19 @@ export default class GitStory {
     return this.client.getFirstCommitDate();
   }
 
-  async getCommitDate(commit_sha){
+  async getCommitDate(commit_sha) {
     return this.client.getCommitDate(commit_sha);
   }
 
-  async getCommitsBetweenDates(startDate, endDate) {
-    return this.client.getCommitsBetween(startDate, endDate);
+  async getCommitsBetweenDates(startDate, endDate, per_page: number, page: number) {
+    return this.client.getCommitsBetween(startDate, endDate, per_page, page);
   }
 
-  async getCommitsUntilDate(date) {
-    return this.client.getCommitsUntil(date);
+  async getCommitsUntilDate(date, per_page: number, page: number) {
+    return this.client.getCommitsUntil(date, per_page, page);
   }
 
+  async yearsActive() {
+    return this.client.yearsActive();
+  }
 }
-
-

@@ -10,14 +10,14 @@ const test3 = "2018-01-13T00:00:00.000Z";
 
 async function testCommitUntilDate(){
   
-  const test = await gitstory.getCommitsUntilDate(test3);
+  const test = await gitstory.getCommitsUntilDate(test3, 200, 1);
   test.data.forEach((element) => {
     console.log(element.commit.author.date);
   });
 }
 
 async function testCommitBetween(){
-  const test = await gitstory.getCommitsBetweenDates(start, end);
+  const test = await gitstory.getCommitsBetweenDates(start, end, 200, 1);
   test.data.forEach((element) => {
     console.log(element.commit.author.date);
   });
@@ -28,9 +28,16 @@ async function testGetCommitDate(){
   console.log(test);
 }
 
+async function yearsActive() {
+  const test = await gitstory.yearsActive();
+  console.log(test);
+  
+  
+}
 
 (async function () {
-  testCommitUntilDate();
+  //testCommitUntilDate();
+  yearsActive();
   //testGetCommitDate();
   //testCommitBetween();
   // → 🎉

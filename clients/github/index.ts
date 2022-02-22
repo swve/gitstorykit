@@ -34,7 +34,6 @@ export class GithubClient {
     return firstcommit;
   }
 
-
   /**
    * Get first commit date
    * Dates are in ISO 8601 format
@@ -47,31 +46,45 @@ export class GithubClient {
   }
 
   /**
+   * Get last commit date
+   * Dates are in ISO 8601 format
+   * @param params
+   */
+  async getLastCommitDate() {
+    const commit = await this.octokit.rest.repos.listCommits({
+      per_page: 1,
+      ...this.config,
+    });
+    const date = await commit.data[0].commit.author.date;
+    return date;
+  }
+
+  /**
    * Get a commit date
    * Dates are in ISO 8601 format
-   */ 
-  async getCommitDate(commit_sha:string) {
+   */
+  async getCommitDate(commit_sha: string) {
     const commit = await this.octokit.rest.git.getCommit({
       commit_sha: commit_sha,
-      ...this.config
+      ...this.config,
     });
     const date = await commit.data.author.date;
     return date;
   }
 
   /**
-   * Get a particular day commits 
+   * Get a particular day commits
    * Dates are in ISO 8601 format
-   * @param params 
+   * @param params
    */
-   async getCommitsBetween(startDate:string,endDate:string,per_page:string,page:string){
+  async getCommitsBetween(startDate: string, endDate: string, per_page: number, page: number) {
     const res = await this.octokit.rest.repos.listCommits({
-      since:startDate,
-      until:endDate,
-      per_page:per_page,
-      page:page,
-      ...this.config
-    }) 
+      since: startDate,
+      until: endDate,
+      per_page: per_page,
+      page: page,
+      ...this.config,
+    });
     return res;
   }
 
@@ -80,15 +93,31 @@ export class GithubClient {
    * Dates are in ISO 8601 format
    * @param date
    */
-   
-  async getCommitsUntil(date:string,per_page:string,page:string){
+  async getCommitsUntil(date: string, per_page: number, page: number) {
     const res = await this.octokit.rest.repos.listCommits({
-      until:date,
-      per_page:per_page,
-      page:page,      
-      ...this.config
-    })
+      until: date,
+      per_page: per_page,
+      page: page,
+      ...this.config,
+    });
     return res;
   }
 
+  /**
+   * Get a list of a repo active years
+   * Returns an array of years
+   * @param
+   */
+  async yearsActive() {
+    const first = await this.getFirstCommitDate();
+    const last = await this.getLastCommitDate();
+    const firstYear = parseInt(first.substring(0, 4));
+    const lastYear = parseInt(last.substring(0, 4));
+
+    const years = [];
+    for (let i = firstYear; i <= lastYear; i++) {
+      years.push(i);
+    }
+    return years;
+  }
 }
