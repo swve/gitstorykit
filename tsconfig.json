@@ -1,11 +1,10 @@
 {
-    "compilerOptions": {
-      "module": "commonjs",
-      "target": "esnext",
-      "declaration": true,
-      "outDir": "./dist"
-    },
-    "include": [
-      "src/**/*"
-, "tests/test.ts"    ]
-  }
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "esnext",
+    "declaration": true,
+    "esModuleInterop": true,
+    "outDir": "./dist"
+  },
+  "include": [".", "src/**/*", "tests/test.ts"]
+}

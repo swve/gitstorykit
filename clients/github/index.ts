@@ -1,9 +1,9 @@
-import { ParamsInterface, TimeInterface } from "../../interfaces";
+import { ParamsInterface } from "../../interfaces";
 import { Octokit } from "@octokit/rest";
-import * as parse from "parse-link-header";
+import parse from "parse-link-header";
 
 export class GithubClient {
-  octokit = new Octokit();
+  private octokit = new Octokit();
   private config;
 
   init(params: ParamsInterface) {
@@ -64,10 +64,12 @@ export class GithubClient {
    * Dates are in ISO 8601 format
    * @param params 
    */
-   async getCommitsBetween(startDate:string,endDate:string){
+   async getCommitsBetween(startDate:string,endDate:string,per_page:string,page:string){
     const res = await this.octokit.rest.repos.listCommits({
       since:startDate,
       until:endDate,
+      per_page:per_page,
+      page:page,
       ...this.config
     }) 
     return res;
@@ -79,9 +81,11 @@ export class GithubClient {
    * @param date
    */
    
-  async getCommitsUntil(date:string){
+  async getCommitsUntil(date:string,per_page:string,page:string){
     const res = await this.octokit.rest.repos.listCommits({
       until:date,
+      per_page:per_page,
+      page:page,      
       ...this.config
     })
     return res;

@@ -1,14 +1,16 @@
 {
   "name": "gitstorykit",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "author": "swve",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [
+    "dist/"
+  ],
   "scripts": {
-    "test": "ts-node test.ts",
-    "prepublishOnly": "npm run compile",
-    "compile": "npm run clean && tsc -p .",
-    "watch": "tsc -w -p .",
-    "clean": "rm -rf dist"
+    "test": "ts-node tests/test.ts",
+    "tsc": "tsc -p tsconfig.json",
+    "prepublish": "npm run tsc"
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {

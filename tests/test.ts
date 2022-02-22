@@ -9,6 +9,7 @@ const test3 = "2018-01-13T00:00:00.000Z";
 
 
 async function testCommitUntilDate(){
+  
   const test = await gitstory.getCommitsUntilDate(test3);
   test.data.forEach((element) => {
     console.log(element.commit.author.date);
