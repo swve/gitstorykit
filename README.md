@@ -1,5 +1,5 @@
 <p align="center"><br>
-  <a href="https://framestack.net">
+  <a href="#">
     <img src=".github/img/gitstorykit.png" height="128">
   </a>
 </p>
@@ -14,11 +14,14 @@
 
 
 
-GitStoryKit is a little development kit that can be used to develop apps and software that enables git time travel, the library is in early development and is designed for simplicity 
+GitStoryKit is a little development kit that can be used to develop apps and software that enables git time travel, the library is in early development and is designed for simplicity. 
 
-GitHub is the only Git client supported but support for these clients is on the works : 
-- Gitlab 
-- BitBucket 
+GitStoryKit is heavily used in GitStory 
+
+The following Git clients are supported : 
+- GitHub ✅
+- Gitlab ⏳ (on development)
+- BitBucket ⏳ (on development)
 
 ## Usage 
 
@@ -42,27 +45,27 @@ const commit = await gitstory.getFirstCommit();
 const commit = await gitstory.getFirstCommitDate();
 ```
 
-### Get commit Date
-Dates should be in the *ISO 8601 format*
+### Get a commit's Date
+Dates should be in the **ISO 8601 format**
 ```js
 const commit = await gitstory.getCommitDate(commit_sha);
 ```
 
 ### Get commit between dates
 
-Dates should be in the *ISO 8601 format*
+Dates should be in the **ISO 8601 format**
 ```js
 const commit = await gitstory.getCommitsBetweenDates(startDate, endDate, per_page: number, page: number);
 ```
 
 ### Get commits until date
 
-Dates should be in the *ISO 8601 format*
+Dates should be in the **ISO 8601 format**
 ```js
 const commit = await gitstory.getCommitsUntilDate(date, per_page: number, page: number);
 ```
 
-### Get years active
+### Get a repository active years 
 ```js
 const commit = await gitstory.yearsActive();
 ```
