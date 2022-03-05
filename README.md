@@ -37,18 +37,18 @@ gitstory.init({ owner: "vercel", repo: "next.js", sha: "5.0" });
 
 ### Get first commit
 ```js
-const commit = await gitstory.getFirstCommit();
+const firstcommit = await gitstory.getFirstCommit();
 ```
 
 ### Get first commit Date
 ```js
-const commit = await gitstory.getFirstCommitDate();
+const firstcommitdate = await gitstory.getFirstCommitDate();
 ```
 
 ### Get a commit's Date
 Dates should be in the **ISO 8601 format**
 ```js
-const commit = await gitstory.getCommitDate(commit_sha);
+const commit_date = await gitstory.getCommitDate(commit_sha);
 ```
 
 ### Get commit between dates
@@ -67,7 +67,7 @@ const commit = await gitstory.getCommitsUntilDate(date, per_page: number, page: 
 
 ### Get a repository active years 
 ```js
-const commit = await gitstory.yearsActive();
+const active_years = await gitstory.yearsActive();
 ```
 
 
