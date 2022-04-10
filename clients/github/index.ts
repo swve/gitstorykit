@@ -3,15 +3,14 @@ import { Octokit } from "@octokit/rest";
 import parse from "parse-link-header";
 
 export class GithubClient {
-  private octokit = new Octokit();
+  private octokit;
   private config;
 
   init(params: ParamsInterface) {
+    this.octokit = new Octokit({ auth: params.auth });
     this.config = {
       owner: params.owner,
       repo: params.repo,
-      token: params.token,
-      sha: params.token,
     };
   }
 
@@ -113,6 +112,8 @@ export class GithubClient {
     const last = await this.getLastCommitDate();
     const firstYear = parseInt(first.substring(0, 4));
     const lastYear = parseInt(last.substring(0, 4));
+
+    
 
     const years = [];
     for (let i = firstYear; i <= lastYear; i++) {
