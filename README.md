@@ -30,10 +30,10 @@ import GitStory from "gitstorykit";
 
 const gitstory = new GitStory("Github");
 
-gitstory.init({ owner: "vercel", repo: "next.js" }); 
+gitstory.init({ owner: "swve", repo: "framestack" }); 
 
 // with auth tokens
-gitstory.init({ owner: "vercel", repo: "next.js" , auth: "yourtoken" }); 
+gitstory.init({ owner: "swve", repo: "framestack" , auth: "yourtoken" }); 
 ```
 
 ### Get first commit
