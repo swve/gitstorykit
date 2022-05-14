@@ -3,6 +3,7 @@ import GitStory from "../index";
 const gitstory = new GitStory("Github");
 gitstory.init({ owner: "swve", repo: "framestack" });
 
+// Examples
 const start = "2019-01-11T00:00:00.000Z";
 const end = "2019-01-13T00:00:00.000Z";
 const test3 = "2018-01-13T00:00:00.000Z";

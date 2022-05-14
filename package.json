@@ -1,7 +1,29 @@
 {
   "name": "gitstorykit",
-  "version": "1.1.2",
-  "author": "swve",
+  "version": "1.1.3",
+  "description": "Build rich git history discovery apps with ease, used by GitStory",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swve/gitstoryKit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/swve/gitstoryKit/issues"
+  },
+  "homepage": "https://github.com/swve/gitstoryKit#readme",
+  "author": {
+    "name": "swve",
+    "email": "bdswve@gmail.com",
+    "url": "http://graphicmade.com"
+  },
+  "keywords": [
+    "git",
+    "history",
+    "gitstorykit",
+    "first-commit",
+    "commits",
+    "time-machine",
+    "gitkit"
+  ],
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
@@ -17,16 +39,7 @@
     "@octokit/rest": "^18.12.0",
     "@types/parse-link-header": "^1.0.1",
     "parse-link-header": "^2.0.0",
-    "ts-node": "^9.1.1",
-    "typescript": "^4.2.4"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/swve/gitstoryKit.git"
-  },
-  "bugs": {
-    "url": "https://github.com/swve/gitstoryKit/issues"
-  },
-  "homepage": "https://github.com/swve/gitstoryKit#readme",
-  "description": ""
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.4"
+  }
 }
